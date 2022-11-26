@@ -31,6 +31,7 @@
 #include "pixel_fractal_anim.h"
 #include "typing_heatmap_anim.h"
 #include "digital_rain_anim.h"
+#include "digital_rain_2_anim.h"
 #include "solid_reactive_simple_anim.h"
 #include "solid_reactive_anim.h"
 #include "solid_reactive_wide.h"
@@ -38,3 +39,4 @@
 #include "solid_reactive_nexus.h"
 #include "splash_anim.h"
 #include "solid_splash_anim.h"
+#include "learning_anim.h"
