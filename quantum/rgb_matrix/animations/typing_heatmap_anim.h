@@ -18,18 +18,18 @@ void process_rgb_matrix_typing_heatmap(uint8_t row, uint8_t col) {
 
     if (m_col < col) g_rgb_frame_buffer[row][m_col] = qadd8(g_rgb_frame_buffer[row][m_col], 16);
     g_rgb_frame_buffer[row][col] = qadd8(g_rgb_frame_buffer[row][col], 32);
-    if (p_col < MATRIX_COLS) g_rgb_frame_buffer[row][p_col] = qadd8(g_rgb_frame_buffer[row][p_col], 16);
+    if (p_col < LED_MATRIX_COLS) g_rgb_frame_buffer[row][p_col] = qadd8(g_rgb_frame_buffer[row][p_col], 16);
 
-    if (p_row < MATRIX_ROWS) {
+    if (p_row < LED_MATRIX_ROWS) {
         if (m_col < col) g_rgb_frame_buffer[p_row][m_col] = qadd8(g_rgb_frame_buffer[p_row][m_col], 13);
         g_rgb_frame_buffer[p_row][col] = qadd8(g_rgb_frame_buffer[p_row][col], 16);
-        if (p_col < MATRIX_COLS) g_rgb_frame_buffer[p_row][p_col] = qadd8(g_rgb_frame_buffer[p_row][p_col], 13);
+        if (p_col < LED_MATRIX_COLS) g_rgb_frame_buffer[p_row][p_col] = qadd8(g_rgb_frame_buffer[p_row][p_col], 13);
     }
 
     if (m_row < row) {
         if (m_col < col) g_rgb_frame_buffer[m_row][m_col] = qadd8(g_rgb_frame_buffer[m_row][m_col], 13);
         g_rgb_frame_buffer[m_row][col] = qadd8(g_rgb_frame_buffer[m_row][col], 16);
-        if (p_col < MATRIX_COLS) g_rgb_frame_buffer[m_row][p_col] = qadd8(g_rgb_frame_buffer[m_row][p_col], 13);
+        if (p_col < LED_MATRIX_COLS) g_rgb_frame_buffer[m_row][p_col] = qadd8(g_rgb_frame_buffer[m_row][p_col], 13);
     }
 #        endif
 }
@@ -64,8 +64,8 @@ bool TYPING_HEATMAP(effect_params_t* params) {
 
     // Render heatmap & decrease
     for (int i = led_min; i < led_max; i++) {
-        uint8_t row = i % MATRIX_ROWS;
-        uint8_t col = i / MATRIX_ROWS;
+        uint8_t row = i % LED_MATRIX_ROWS;
+        uint8_t col = i / LED_MATRIX_ROWS;
         uint8_t val = g_rgb_frame_buffer[row][col];
 
         // set the pixel colour

@@ -35,6 +35,10 @@
 #define MATRIX_ROWS 12
 #define MATRIX_COLS 7
 
+/* led matrix size */
+#define LED_MATRIX_ROWS 7
+#define LED_MATRIX_COLS 20 
+
 /*  PCB default pin-out */
 // #define MATRIX_ROW_PINS { B10, B11, B12, B13, B14, B15 }
 // #define MATRIX_COL_PINS { A0, A1, A2, A3, A6, A7, B0 }
@@ -123,7 +127,6 @@
 // enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined
 // #    define ENABLE_RGB_MATRIX_TYPING_HEATMAP
 // #    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
-#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN_2
 // // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
 // #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 // #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE
@@ -138,7 +141,7 @@
 // #    define ENABLE_RGB_MATRIX_SOLID_SPLASH
 // #    define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
-// #    define ENABLE_RGB_MATRIX_LEARNING
+#    define ENABLE_RGB_MATRIX_LEARNING
 
 // #define RGB_MATRIX_LED_PROCESS_LIMIT 5
 // #define RGB_MATRIX_LED_FLUSH_LIMIT 26

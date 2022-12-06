@@ -21,8 +21,8 @@ RGB_MATRIX_EFFECT(PIXEL_FRACTAL)
 #    ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
 
 static bool PIXEL_FRACTAL(effect_params_t* params) {
-#        define MID_COL MATRIX_COLS / 2
-    static bool led[MATRIX_ROWS][MATRIX_COLS];
+#        define MID_COL LED_MATRIX_COLS / 2
+    static bool led[LED_MATRIX_ROWS][LED_MATRIX_COLS];
 
     static uint32_t wait_timer = 0;
     if (wait_timer > g_rgb_timer) {
@@ -38,7 +38,7 @@ static bool PIXEL_FRACTAL(effect_params_t* params) {
     }
 
     RGB rgb = rgb_matrix_hsv_to_rgb(rgb_matrix_config.hsv);
-    for (uint8_t h = 0; h < MATRIX_ROWS; ++h) {
+    for (uint8_t h = 0; h < LED_MATRIX_ROWS; ++h) {
         for (uint8_t l = 0; l < MID_COL - 1; ++l) { // Light and move left columns outwards
             if (led[h][l]) {
                 rgb_matrix_set_color(g_led_config.matrix_co[h][l], rgb.r, rgb.g, rgb.b);
@@ -48,7 +48,7 @@ static bool PIXEL_FRACTAL(effect_params_t* params) {
             led[h][l] = led[h][l + 1];
         }
 
-        for (uint8_t r = MATRIX_COLS - 1; r > MID_COL; --r) { // Light and move right columns outwards
+        for (uint8_t r = LED_MATRIX_COLS - 1; r > MID_COL; --r) { // Light and move right columns outwards
             if (led[h][r]) {
                 rgb_matrix_set_color(g_led_config.matrix_co[h][r], rgb.r, rgb.g, rgb.b);
             } else {

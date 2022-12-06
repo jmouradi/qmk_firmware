@@ -77,7 +77,7 @@ typedef struct PACKED {
 #define NO_LED 255
 
 typedef struct PACKED {
-    uint8_t     matrix_co[MATRIX_ROWS][MATRIX_COLS];
+    uint8_t     matrix_co[LED_MATRIX_ROWS][LED_MATRIX_COLS];
     led_point_t point[DRIVER_LED_TOTAL];
     uint8_t     flags[DRIVER_LED_TOTAL];
 } led_config_t;
