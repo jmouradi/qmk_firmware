@@ -24,6 +24,9 @@ keyboard_config_t keyboard_config;
 bool mcp23018_leds[3] = {0, 0, 0};
 bool is_launching     = false;
 
+bool g_valo_layer_suspended = false;
+float plover_song[][2]     = SONG(PLOVER_SOUND);
+
 #ifdef DYNAMIC_MACRO_ENABLE
 static bool is_dynamic_recording = false;
 
@@ -431,6 +434,17 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 #endif
+        case KC_ENTER:
+            if (record->event.pressed) {
+                if (IS_LAYER_ON(1)) {
+                     g_valo_layer_suspended = true;
+                     layer_off(1);
+                } else if (g_valo_layer_suspended) {
+                     g_valo_layer_suspended = false;
+                     layer_on(1);
+                }
+            }
+            return true; // Let QMK send the enter press/release events
     }
     return true;
 }
