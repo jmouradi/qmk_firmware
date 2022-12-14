@@ -39,3 +39,4 @@
 #include "splash_anim.h"
 #include "solid_splash_anim.h"
 #include "learning_anim.h"
+#include "typing_on_off_anim.h"
